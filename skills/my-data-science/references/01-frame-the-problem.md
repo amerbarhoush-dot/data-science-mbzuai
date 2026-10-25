@@ -16,7 +16,10 @@ Goal: turn a vague request ("analyze churn", "predict sales", "plot revenue by r
 9. **Describe the status quo.** Write down today's process (rule, heuristic, expert estimate) and its measured performance. This becomes the baseline to beat.
 10. **Route to a problem type** (see the router in SKILL.md) and check that the problem qualifies. Classification qualifies only if (a) the answer comes from a fixed known set of labels, (b) past labels exist at scale and (c) each label leads to a different action.
 11. **Define success.** State a primary business metric (cost saved, value, workload), a technical metric that tracks it, **guardrail metrics** (complaints, fairness, latency) and the minimum improvement over baseline that justifies deployment.
-12. **Check whether data science is the right tool.** If no decision changes, the output is a report, not a project. Don't build high-precision models for low-value decisions.
+12. **Design the analytical system when more than one technique is needed.** Name each component, what it predicts, and how its output feeds the next component or the decision. Draw data → components → decision. Then define the **decision layer**: the actions available, the real constraint or objective (budget, capacity, risk appetite), and the rule that turns predictions into actions. "A prediction with a threshold slapped on" is not a decision layer unless the threshold comes from a real constraint or cost.
+13. **Start an assumptions register.** List every quantity the decision needs but the data doesn't contain (intervention cost, value of a retained customer, reviewer accuracy, capacity), with its value, source or rationale and owner. These become configurable parameters and the inputs to sensitivity analysis.
+14. **Scope to resources.** Match the ambition to the team size, the time and the data access. Note the planned ablation, sensitivity analysis and deeper analyses early (see [deeper-analyses.md](deeper-analyses.md)).
+15. **Check whether data science is the right tool.** If no decision changes, the output is a report, not a project. Don't build high-precision models for low-value decisions.
 
 ## Questions to ask the stakeholder
 
@@ -45,4 +48,6 @@ Goal: turn a vague request ("analyze churn", "predict sales", "plot revenue by r
 
 ## Deliverable: problem brief
 
-Decision and owner · problem statement (template above) · problem type · target definition and alternatives considered · horizon and lead time · cost matrix · constraints · status quo and its performance · success metric, guardrails and the deployment bar · open assumptions to confirm.
+Decision and owner · problem statement (template above) · problem type(s) and system diagram · decision layer (actions, constraint, rule) · target definition and alternatives considered · horizon and lead time · cost matrix · constraints (data, computational, business/regulatory) · assumptions register · status quo and its performance · success criteria: primary ML metric, primary decision metric, "good enough" bar to act and how it beats the baseline · guardrails · open questions.
+
+Write it for someone outside data science: short, decision first. For a formal proposal, see the template in [project-delivery.md](project-delivery.md).

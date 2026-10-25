@@ -29,6 +29,13 @@ Goal: decide how success will be measured so that the reported performance predi
 6. **Plan segment evaluation.** Choose the critical segments: customer tier, geography, new vs existing, product, channel, and lawful demographic groups where appropriate. An 88% overall score can hide total failure in one segment.
 7. **Plan the uncertainty reporting**: bootstrap confidence intervals, paired comparisons and sensitivity to cost assumptions.
 8. **Set the deployment bar**: the minimum gain over baseline, with confidence, that justifies launch.
+9. **Multi-component systems**:
+   - Choose two or three metrics per component, plus one or two decision-level metrics. Designate one **primary ML metric** and one **primary decision metric**, and justify each in business terms.
+   - Evaluate each component on its own split (for example, temporal for forecasting, user-level or leave-one-out holdout for recommenders) **and** the whole chain together.
+   - Handle sequential dependencies: when one component's output feeds another, the downstream component must be trained and evaluated on **out-of-sample** upstream outputs, never on the upstream component's training-set predictions.
+   - Prevent leakage across components: shared splits, no test-period information flowing upstream.
+10. **Evaluate the decision layer on held-out data.** Make decisions using only information available at decision time. Score them on outcomes that actually occurred, or on clearly stated assumptions from the register. Compare them with a **baseline decision policy**, such as the current business rule or "act on the highest-risk cases until the budget runs out".
+11. **Plan the deeper analyses now**: which components the ablation will remove or swap, which assumptions the sensitivity analysis will vary, and which challenge sets you will test on (see [deeper-analyses.md](deeper-analyses.md)).
 
 ## Metric catalogue
 
@@ -96,4 +103,4 @@ Goal: decide how success will be measured so that the reported performance predi
 
 ## Deliverable: evaluation plan
 
-Data roles and split strategy (with dates or groups), baseline ladder, primary and secondary metrics, cost function, capacity constraint, segments, uncertainty method and deployment bar. Freeze it before modeling.
+Data roles and split strategy (with dates or groups) per component, baseline ladder (including the baseline decision policy), primary ML and decision metrics with justifications, cost function, capacity constraint, segments and challenge sets, uncertainty method, ablation and sensitivity design, and deployment bar. Freeze it before modeling. The evaluation code should be reproducible with one command and write a structured results table.

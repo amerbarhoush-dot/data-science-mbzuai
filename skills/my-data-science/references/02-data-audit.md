@@ -24,7 +24,8 @@ Goal: establish what the data can and cannot tell you before anyone looks for pa
     - **Proxy leakage**: fields that encode who handled the outcome (assigned investigator, routed to legal, extra documents requested).
     - **Time-travel leakage**: reference data rebuilt after the fact (today's watchlist instead of the watchlist as of the event date).
     - **Pipeline leakage**: scaling, imputing, encoding or feature selection fitted on all rows before splitting.
-13. **Fitness for purpose.** Is there enough data overall, per segment and per class? Does history contain the signal, or only static descriptors?
+13. **Fitness for purpose.** Is there enough data overall, per segment and per class? Does history contain the signal, or only static descriptors? Does the data support **every** planned component? Forecasting needs a usable time dimension, a recommender needs interaction data, a classifier needs reliable labels, and the decision layer needs values and costs (from the data or the assumptions register).
+14. **Source, licence and ethics.** Document where each dataset comes from, its licence or terms of use, its size and its time coverage. Confirm permission for internal data. Mask personal identifiers, bucket sensitive fields, and never put confidential raw data in a shared repository. Prefer real or public data; use synthetic data only when justified and clearly labelled.
 
 ## Questions to ask
 

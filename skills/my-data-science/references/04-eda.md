@@ -33,8 +33,15 @@ Data quality → **univariate** → **bivariate** → **conditional** (does it s
    - Could a confounder or seasonality explain it?
    - Is there a plausible mechanism, or is it a spurious correlation?
 7. **Test alternative explanations actively.** Examples: competitor exit, seasonality, discounting, a measurement change, a one-off event.
-8. **Prioritise** findings by **impact × feasibility × confidence**. High-impact, low-confidence findings become research questions. Drop findings that are statistically interesting but have tiny business impact.
-9. **Convert observations to insights.** An insight = pattern + location + mechanism + consequence. Apply the **"So what?" test** to each.
+8. **Cover every component and the decision.** EDA should check that the data supports each planned technique, for example:
+   - target or class balance for classification
+   - time patterns, seasonality and rolling averages for forecasting
+   - interaction sparsity and user/item activity for recommenders
+   - box plots and flagged points for anomalies
+   - co-occurrence frequencies for pattern mining
+   It should also include **decision-relevant views**: distributions of value and cost, outcome rates by segment, and how much the constraint binds. Note any surprises or scope changes the EDA triggers.
+9. **Prioritise** findings by **impact × feasibility × confidence**. High-impact, low-confidence findings become research questions. Drop findings that are statistically interesting but have tiny business impact.
+10. **Convert observations to insights.** An insight = pattern + location + mechanism + consequence. Apply the **"So what?" test** to each.
    - Observation: "churn is 18%".
    - Insight: "churn is concentrated in the first 90 days after onboarding; fixing onboarding protects X per month".
    - The funnel to expect: 100 charts → 20 patterns → 5 findings → 2 insights → 1 decision.

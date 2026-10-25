@@ -33,7 +33,8 @@ Goal: establish whether the improvement is real, robust, safe across segments an
 8. **Prevalence sensitivity**: if the base rate may change in deployment, show how precision, workload and cost move. ROC-AUC will not show this.
 9. **Validation overfitting (the winner's curse)**: many trials against the same validation set inflate its score. Every experiment counts, including ones directed by an LLM. Keep the number of trials modest and log them all.
 10. **Lock the choice**, including model, features, hyperparameters and decision policy, **then open the test set once**. Do not change anything after seeing the test results. If they disappoint, report it and plan a new cycle with fresh holdout data.
-11. **Explainability check**: global (feature importance, coefficients) and local (why this case). Confirm the explanations make domain sense; a nonsensical top feature often reveals leakage.
+11. **Prove each component earns its keep**: run the **ablation** (remove or swap one component at a time and re-score the decision metric), the **sensitivity/stability** analysis, **challenge-set evaluation** on hard slices (cold start, rare patterns, extreme values, volatile periods), and **oracle/headroom** analysis to find where improvement effort should go. See [deeper-analyses.md](deeper-analyses.md).
+12. **Explainability check**: global (feature importance, coefficients) and local (why this case). Confirm the explanations make domain sense; a nonsensical top feature often reveals leakage.
 
 ## Questions to ask
 

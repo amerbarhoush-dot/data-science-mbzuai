@@ -34,7 +34,13 @@ Goal: convert scores, forecasts or rankings into an operating policy that minimi
    - Use upper quantiles as buffers where shortages are costly.
    - Compare against a strong heuristic, such as the same period last cycle.
 9. **Sensitivity analysis.** Re-run the policy with costs, prevalence and capacity varied, for example ±50% or a cost shock. Report whether the recommended policy and model still win. Name the inputs the decision depends on most.
-10. **Scenario and what-if analysis.** Offer three to five named scenarios that stay within the model's valid range. Executives engage with scenarios, not coefficients.
+10. **Decision frontier, regret and reconciliation.**
+    - Show how the optimal policy shifts as budget, capacity or risk appetite changes.
+    - Measure mistakes by the value lost (**decision regret**), not by raw error counts.
+    - Define a principled rule for cases where components disagree (cross-model reconciliation).
+    - Make multi-objective tensions explicit with a trade-off curve.
+    See [deeper-analyses.md](deeper-analyses.md).
+11. **Scenario and what-if analysis.** Offer three to five named scenarios that stay within the model's valid range. Executives engage with scenarios, not coefficients.
 
 ## Questions to ask
 
