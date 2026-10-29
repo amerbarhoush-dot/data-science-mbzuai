@@ -21,6 +21,7 @@ Goal: make sure the solution keeps creating value in the real world, and detect 
    - **Performance**: precision, recall and error once labels arrive, accounting for **label delay**; calibration and interval coverage.
    - **Business**: cost or value realised, guardrail metrics, segment performance.
    - **System**: latency, cost per case, queue age, reviewer agreement, rework.
+   - **When production degrades**: measure the production − validation gap (data mismatch). Run adversarial validation (training vs production) to locate the shift, and follow [debugging-playbook.md](debugging-playbook.md).
 5. **Feedback loops and bias**: models change the behaviour they observe (popularity bias, intervention bias, adversaries adapting). Keep exploration slots or holdout groups, and record what was *shown* or *acted on* so that future training data isn't just a mirror of past decisions.
 6. **Learning loop**: capture human corrections and investigation outcomes as labels. Maintain a small trusted expert-labelled evaluation set. Improve labels cheaply:
    - **Active learning**: label the most informative cases first (uncertainty plus diversity, or highest decision regret).

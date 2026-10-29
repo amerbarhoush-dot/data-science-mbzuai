@@ -12,6 +12,7 @@ Goal: convert scores, forecasts or rankings into an operating policy that minimi
    - **total expected cost**, compared with doing nothing and with the current process
 3. **Choose the operating point** by the business objective:
    - **Minimum expected cost**: theory gives a cut-off of cost_FP / (cost_FP + cost_FN) when probabilities are calibrated and there is no review option. Confirm it empirically on validation.
+   - **Intervention break-even**: when an action succeeds only sometimes, act if p × (success rate × value saved) > cost of acting. The break-even point is p* = cost ÷ (success rate × value).
    - **Fixed capacity K**: rank by score and act on the top K. Report Precision@K and Recall@K. A fixed K keeps workload steady; a fixed cut-off keeps quality steady.
    - **Constraint-first**: for example, "recall at least 70%" or "precision at least 25%". Show what each constraint costs compared with free cost-minimisation.
 4. **Consider multi-tier decisions**:

@@ -20,7 +20,8 @@ The roadmap phases are:
 9. Communicate and build the dashboard
 10. Deploy, monitor and iterate
 
-Two cross-cutting guides:
+Three cross-cutting guides:
+- **Debugging playbook**: name the gap (bias, variance, data mismatch), quick leakage and label-noise diagnostics, explanation tools, error taxonomy, ceiling analysis to rank fixes by business value.
 - **Project delivery**: proposal → working end-to-end slice → final; connecting several techniques into one decision system; reproducibility checklist; project layout; data ethics.
 - **Deeper analyses**: credible baselines, ablation, sensitivity, oracle/headroom, decision regret, decision frontier, cross-model reconciliation, challenge sets, value of information, segment-specific and multi-objective analysis.
 

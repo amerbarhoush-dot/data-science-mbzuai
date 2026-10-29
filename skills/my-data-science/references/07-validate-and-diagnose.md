@@ -4,7 +4,9 @@ Goal: establish whether the improvement is real, robust, safe across segments an
 
 ## Steps
 
-1. **Fit diagnosis (train vs validation gap)**:
+For deeper debugging, including the performance ladder, learning curves, leakage and label-noise diagnostics, explanation tools, the error taxonomy and ceiling analysis, follow [debugging-playbook.md](debugging-playbook.md).
+
+1. **Fit diagnosis (train vs validation gap)**. Place the model on the ladder: expert/human level → training → validation → production. Training − expert is avoidable bias, validation − training is variance, production − validation is data mismatch.
    - Both low with a small gap → **underfitting**: add signal or features, or reconsider whether the signal exists.
    - Both high with a small gap → healthy.
    - Training far above validation → **overfitting**: simplify, regularise or get more data.
@@ -17,7 +19,7 @@ Goal: establish whether the improvement is real, robust, safe across segments an
    - A trend over time means drift or a missing time feature.
    - Extreme points mean outliers or data errors.
    - Check bias (the systematic direction of error). Large individual misses matter even when the average looks fine.
-3. **Error analysis** (classification and other tasks):
+3. **Error analysis** (classification and other tasks). Sample about 100 errors, tag them with the taxonomy (label error, out of scope, missing information, data quality, edge case, model weakness), then rank fixes by ceiling × recovery rate − cost (see the playbook):
    - Inspect samples of false positives and false negatives.
    - Slice errors by segment, time, input length, language and data source.
    - Find the costliest error types first.
